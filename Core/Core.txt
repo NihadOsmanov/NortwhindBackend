@@ -1,0 +1,1 @@
+﻿Sadəcə bu backenddə deyil başqa backendlərdədə istifadə edəcəyimiz librarydir

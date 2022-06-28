@@ -1,0 +1,2 @@
+﻿Datalara giriş prosesləri görülür
+İnsert, Update, Delete işləri görülür
