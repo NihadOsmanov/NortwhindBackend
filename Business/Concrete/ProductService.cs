@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAcces.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
@@ -15,34 +17,40 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
-        public void Update(Product product)
+        public IResult Update(Product product)
         {
             _productDal.Update(product);
+            return new SuccesResult(Messages.ProductUpdated);
         }
 
-        public void Add(Product product)
+        public IResult Add(Product product)
         {
             _productDal.Add(product);
+            return new SuccesResult(Messages.ProductAdded);
         }
 
-        public void Delete(Product product)
+        public IResult Delete(Product product)
         {
             _productDal.Delete(product);
+            return new SuccesResult(Messages.ProductDeleted);
         }
 
-        public Product GetById(int productId)
+        public IDataResult<Product> GetById(int productId)
         {
-            return _productDal.Get(x => x.ProductId == productId);
+            var result = _productDal.Get(x => x.ProductId == productId);
+            return new SuccesDataResult<Product>(result);
         }
 
-        public List<Product> GetList()
+        public IDataResult<List<Product>> GetList()
         {
-            return _productDal.GetAll().ToList();
+            var result = _productDal.GetAll().ToList();
+            return new SuccesDataResult<List<Product>>(result)
         }
 
-        public List<Product> GetListByCategory(int categoryId)
+        public IDataResult<List<Product>> GetListByCategory(int categoryId)
         {
-            return _productDal.GetAll(x => x.CategoryId == categoryId).ToList();
+            var result = _productDal.GetAll(x => x.CategoryId == categoryId).ToList();
+            return new SuccesDataResult<List<Product>>(result);
         }
     }
 }
