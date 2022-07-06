@@ -44,7 +44,7 @@ namespace Business.Concrete
         public IDataResult<List<Product>> GetList()
         {
             var result = _productDal.GetAll().ToList();
-            return new SuccesDataResult<List<Product>>(result)
+            return new SuccesDataResult<List<Product>>(result);
         }
 
         public IDataResult<List<Product>> GetListByCategory(int categoryId)
