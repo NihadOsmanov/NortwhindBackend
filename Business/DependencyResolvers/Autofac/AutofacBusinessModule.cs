@@ -13,6 +13,9 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<ProductService>().As<IProductService>();
             builder.RegisterType<EfProductDal>().As<IProductDal>();
+
+            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
         }
     }
 }

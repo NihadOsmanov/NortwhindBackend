@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -16,7 +16,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("getall")]
         public IActionResult GetList()
         {
             var result = _productService.GetList();
@@ -27,7 +26,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("getallbycategory")]
         public IActionResult GetListByCategory(int categoryId)
         {
             var result = _productService.GetListByCategory(categoryId);
@@ -38,7 +36,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("getbyid")]
         public IActionResult GetById(int productId)
         {
             var result = _productService.GetById(productId);
@@ -49,7 +46,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("addproduct")]
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
@@ -60,7 +56,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("updateproduct")]
         public IActionResult Update(Product product)
         {
             var result = _productService.Update(product);
@@ -71,7 +66,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteproduct")]
         public IActionResult Delete(Product product)
         {
             var result = _productService.Delete(product);
