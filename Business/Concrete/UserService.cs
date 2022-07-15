@@ -25,7 +25,7 @@ namespace Business.Concrete
             return _userDal.Get(x => x.Email == email);
         }
 
-        public IList<OperationClaim> GetClaims(User user)
+        public List<OperationClaim> GetClaims(User user)
         {
             return _userDal.GetClaims(user);
         }
