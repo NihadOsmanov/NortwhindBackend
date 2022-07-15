@@ -12,7 +12,10 @@
             Data = data;
         }
 
-
+        public DataResult(string message) : base(message)
+        {
+            
+        }
         public T Data { get; }
     }
 }
